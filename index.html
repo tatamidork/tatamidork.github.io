@@ -1,105 +1,61 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Portfolio</title>
-  <meta name="description" content="Developer portfolio of Your Name: projects, skills, and contact." />
-  <!-- Simple, fast styling (Tailwind CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Social preview -->
-  <meta property="og:title" content="Your Name — Portfolio" />
-  <meta property="og:description" content="Projects, skills, and contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://YOUR-USERNAME.github.io/" />
-</head>
-<body class="bg-zinc-950 text-zinc-100 antialiased">
-  <main class="max-w-5xl mx-auto px-6 py-12">
-    <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-      <div>
-        <h1 class="text-4xl font-bold">Your Name</h1>
-        <p class="text-zinc-400 mt-1">Developer • Designer • <span class="italic">Builder</span></p>
-      </div>
-      <nav class="flex gap-4 text-sm text-zinc-300">
-        <a href="#projects" class="hover:text-white">Projects</a>
-        <a href="#skills" class="hover:text-white">Skills</a>
-        <a href="#about" class="hover:text-white">About</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
-      </nav>
-    </header>
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=1, user-scalable=yes"/>
 
-    <!-- Projects -->
-    <section id="projects" class="mt-10">
-      <h2 class="text-2xl font-semibold mb-4">Projects</h2>
-      <div id="project-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="mt-12">
-      <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-      <ul class="flex flex-wrap gap-2 text-sm text-zinc-300">
-        <li class="px-3 py-1 rounded-full bg-zinc-800">JavaScript</li>
-        <li class="px-3 py-1 rounded-full bg-zinc-800">Python</li>
-        <li class="px-3 py-1 rounded-full bg-zinc-800">React</li>
-        <li class="px-3 py-1 rounded-full bg-zinc-800">SQL</li>
-      </ul>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="mt-12">
-      <h2 class="text-2xl font-semibold mb-4">About</h2>
-      <p class="text-zinc-300 leading-7">
-        Short bio about who you are, what you love building, and what you’re looking for.
-      </p>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="mt-12">
-      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-      <p class="text-zinc-300">Email: <a class="underline" href="mailto:you@example.com">you@example.com</a></p>
-      <p class="text-zinc-300">GitHub: <a class="underline" href="https://github.com/YOUR-USERNAME">@YOUR-USERNAME</a></p>
-      <p class="text-zinc-300">LinkedIn: <a class="underline" href="https://www.linkedin.com/in/YOUR-HANDLE/">@YOUR-HANDLE</a></p>
-    </section>
-
-    <footer class="mt-16 text-xs text-zinc-500">© <span id="year"></span> Your Name. All rights reserved.</footer>
-  </main>
-
-  <script>
-    // Render year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Example projects (edit this array)
-    const projects = [
+		<title>TATAMIDORK</title>
+		<link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+    <script type="importmap">
       {
-        title: "Cool App",
-        description: "A tiny app that solves X with Y.",
-        url: "https://github.com/YOUR-USERNAME/cool-app"
-      },
-      {
-        title: "Data Viz",
-        description: "Exploring datasets with interactive charts.",
-        url: "https://YOUR-USERNAME.github.io/data-viz"
-      },
-      {
-        title: "Game Jam",
-        description: "A browser game built in 48 hours.",
-        url: "https://itch.io/profile/YOUR-USERNAME"
+        "imports": {
+          "vue": "/cdn/vue.esm-browser.prod.js",
+          "vue-router": "/cdn/vue-router.esm-browser.prod.js",
+          "components/": "./components/",
+          "views/": "./views/",
+          "data/": "./data/",
+          "tools": "./tools.js"
+        } 
       }
-    ];
+    </script>
+    <script type="module" src="scripts.js" defer></script>
+	</head>
+	<body id="app" class="index">
+    <div class="welcome-loading box-centered" id="loading">
+      <div class="main-logo glass-effect"></div>
+      <p>Please wait...</p>
+      <p>お<ruby>待<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ちください…</p>
+    </div>
 
-    const grid = document.getElementById('project-grid');
-    projects.forEach(p => {
-      const card = document.createElement('a');
-      card.href = p.url;
-      card.target = "_blank";
-      card.rel = "noopener";
-      card.className = "block rounded-2xl p-5 bg-zinc-900/70 ring-1 ring-white/5 hover:ring-white/20 transition";
-      card.innerHTML = `
-        <h3 class="text-lg font-semibold">${p.title}</h3>
-        <p class="text-sm text-zinc-400 mt-2">${p.description}</p>
-      `;
-      grid.appendChild(card);
-    });
+    <div class="main hidden">
+      <router-view />
+    </div>
+	</body>
+  <script>
+    const intervalId = setInterval(() => {
+      const mountPoint = document.getElementById('app');
+      if (mountPoint && mountPoint.__vue_app__) {
+        console.log('Vue app mounted successfully');
+        
+        const loadingElement = document.getElementById('loading');
+        loadingElement.classList.add('is-fading-out');
+        
+        setTimeout(() => {
+          loadingElement.classList.add('hidden');
+
+          for (const selector of ['.main']) {
+            const mainContent = document.querySelector(selector);
+            mainContent.classList.remove('hidden');
+          }
+        }, 1000);
+        
+        clearInterval(intervalId);
+      }
+    }, 100);
   </script>
-</body>
 </html>

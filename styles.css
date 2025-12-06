@@ -1,0 +1,162 @@
+:root {
+  --main-colors-1: #eed7ac;
+  --main-colors-2: #2a1f07;
+  --main-colors-3: #8b9525;
+}
+
+@font-face {
+  font-family: 'ByteBounce';
+  src: url('./assets/ByteBounce.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  font-size: 8rem;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ByteBounce, serif;
+  background-color: var(--main-colors-3);
+
+  p {
+    font-size: 2rem;
+  }
+
+  .main {
+    height: 100%;
+  }
+
+  .main-logo {
+    background-image: url('./assets/logo_vert3.png');
+    height: 8em;
+    width: 15em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    // border: 1px solid #ccc;
+  }
+
+  .box-centered {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .welcome-loading {
+    opacity: 1;
+    transition: opacity 1s ease;
+
+    ruby {
+      ruby-position: over; /* ensure furigana is on top */
+    }
+
+    rt {
+      font-size: 0.6em;       /* adjust size of furigana */
+      margin-bottom: 0.5em;  /* adds space *between* kanji and furigana */
+      letter-spacing: 0.1em;  /* spreads furigana letters a bit */
+    }
+  }
+  
+  .is-fading-out {
+    opacity: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .portfolio {
+
+    .normal {
+      color: var(--main-colors-1);
+      font-size: 2rem;
+    }
+
+    .big {
+      color: var(--main-colors-1);
+      font-size: 4rem;
+      padding: 1rem;
+      border: 3px solid var(--main-colors-1);
+      background-color: var(--main-colors-2);
+    }
+
+    .icons {
+      > * {
+        height: 3em;
+        width: 3em;
+        background-size: 78px;
+        background-position: -14px -14px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      
+      display: flex;
+
+      .email-icon {
+        background-image: url('./assets/mail-icon-t.png');
+      }
+      .ig-icon {
+        background-image: url('./assets/ig-icon-t.png');
+      }
+      .x-icon {
+        background-image: url('./assets/x-icon-t.png');
+      }
+      .ng-icon {
+        background-image: url('./assets/newgrounds-icon-t.png');
+      }
+      .tt-icon {
+        background-image: url('./assets/tiktok-icon-t.png');
+      }
+      .cara-icon {
+        background-image: url('./assets/cara-icon-t.png');
+      }
+      .threads-icon {
+        background-image: url('./assets/threads-icon-t.png');
+      }
+    }
+  }
+}
+
+.glass-effect {
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* optional */
+}
+
+/* Create glass "blink" animation as a sweeping light */
+.glass-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: blink-glass 2.5s infinite;
+}
+
+@keyframes blink-glass {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
