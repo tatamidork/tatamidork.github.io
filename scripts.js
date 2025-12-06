@@ -2,6 +2,7 @@
 import { createApp, ref } from 'vue';
 import { createRouter, createWebHashHistory, useRouter } from 'vue-router';
 
+import Home from 'views/Home.js';
 import Portfolio from 'views/Portfolio.js';
 
 const app = createApp({});
@@ -56,15 +57,16 @@ const NotFound = {
 
 // Routes
 const routes = [
-  { path: '/', component: Portfolio, name: 'home' },
-  { path: '/select-user', component: SelectUser, name: 'select-user' },
-  { path: '/about', component: About, name: 'about' },
-  {
-    path: '/user/:id(\\d+)',
-    component: User,
-    name: 'user',
-    props: true // passes route params as props
-  },
+  { path: '/', component: Home, name: 'home' },
+  { path: '/Portfolio', component: Portfolio, name: 'Portfolio' },
+  // { path: '/select-user', component: SelectUser, name: 'select-user' },
+  // { path: '/about', component: About, name: 'about' },
+  // {
+  //   path: '/user/:id(\\d+)',
+  //   component: User,
+  //   name: 'user',
+  //   props: true // passes route params as props
+  // },
   { path: '/:pathMatch(.*)*', name: '404', component: NotFound }
 ];
 
