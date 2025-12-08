@@ -109,6 +109,7 @@ export default {
     addZoom(el) {
       el.classList.add('zoom');
       el.style.backgroundImage = el.__backup.originalImage;
+      el.scrollIntoView();
     }
   }
 };
