@@ -15,8 +15,39 @@ export default {
 
         const items = document.querySelectorAll('.portfolio .art');
 
+        const itemInfo = [
+          { offset: 750 },
+          { offset: 1200 },
+          { name: "bass", offset: 500 },
+          { offset: 600 },
+          { offset: 300 },
+          { offset: 500 },
+          { offset: 1200 },
+          { offset: 1100 },
+          { offset: 500 },
+          { name: "halloween", offset: 350 },
+          { offset: 300 },
+          { name: "kawaii",  offset: 300 },
+          { offset: 950 },
+          { offset: 380 },
+          { offset: 350 },
+          { offset: 1500 },
+          { offset: 1600 },
+          { offset: 1200 },
+          { offset: 2000 },
+          { offset: 600 },
+          { name: "sping", offset: 1100 },
+          { offset: 500 },
+          { offset: 300 },
+          { name: "travel", offset: 1200 },
+          { offset: 320 },
+          { offset: 850 },
+          { name: "wind", offset: -50 },
+          { offset: 1500 },
+        ];
         let loaded = 0;
-        for (const el of items) {
+        for (const index in items) {
+          const el = items[index];
           const comp = window.getComputedStyle(el);
           const imgSrc = comp.getPropertyValue('background-image');
 
@@ -33,12 +64,13 @@ export default {
           // canvas.setAttribute('width', width);
 
           myImage.onload = function() {
-            canvas.height = 350;
+            canvas.height = 540;
             canvas.width = myImage.naturalWidth;
-            canvas.getContext('2d').drawImage(myImage, 0, 0);
+            const offset = index < itemInfo.length ? itemInfo[index]["offset"] : 300;
+            canvas.getContext('2d').drawImage(myImage, 0, -offset);
             const thumbnailImage = `url(${canvas.toDataURL()})`;
             el.style.backgroundImage = thumbnailImage;
-            el.style.backgroundSize = 'contain';
+            el.style.backgroundSize = 'cover';
 
             el.__backup = {
               originalImage: imgSrc,
