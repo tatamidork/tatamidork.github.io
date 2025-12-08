@@ -6,7 +6,7 @@
 
 		<title>TATAMIDORK</title>
 		<link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/logo_vert3.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
 	</head>
 	<body id="app" class="index">
     <div class="welcome-loading box-centered" id="loading">
-      <div class="main-logo"></div>
+      <div class="main-logo animated"></div>
       <p>Please wait...</p>
       <p>お<ruby>待<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ちください…</p>
     </div>
@@ -37,7 +37,7 @@
     </div>
 	</body>
   <script>
-    const intervalId = setInterval(() => {
+    function check(intervalId) {
       const mountPoint = document.getElementById('app');
       if (mountPoint && mountPoint.__vue_app__) {
         console.log('Vue app mounted successfully');
@@ -52,10 +52,16 @@
             const mainContent = document.querySelector(selector);
             mainContent.classList.remove('hidden');
           }
-        }, 1000);
+        }, 0);
         
         clearInterval(intervalId);
       }
-    }, 100);
+    }
+
+    setTimeout(() => {
+      const intervalId = setInterval(() => {
+        check(intervalId);
+      }, 100);
+    }, 0);
   </script>
 </html>
