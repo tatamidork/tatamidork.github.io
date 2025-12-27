@@ -1,7 +1,10 @@
 export default {
   template: /*html*/`
     <div class="portfolio container">
-      <div v-for="i in 28" :key="i" @click="onSelect" class="art loading"></div>
+      <div class="items">
+        <div v-for="i in 30" :key="i" @click="onSelect" class="art loading"></div>
+      </div>
+      <div @click="onSelect" class="fullscreen"></div>
       <div class="loading-message">loading...</div>
     </div>
   `,
@@ -11,7 +14,15 @@ export default {
 
     const intervalId = setInterval(() => {
       if (document.getElementById('loading').classList.contains('hidden')) {
+        const items = document.querySelectorAll('.portfolio .art');
+  
+        for (const el of items) {
+          el.classList.remove('loading');
+        }
+        document.querySelector('.portfolio .loading-message').classList.add('hidden');
         clearInterval(intervalId);
+      }
+    /*
 
         const items = document.querySelectorAll('.portfolio .art');
 
@@ -87,7 +98,7 @@ export default {
             }
           };
         }
-      }
+      }*/
     }, 100);
   },
   methods: {
@@ -102,13 +113,23 @@ export default {
         this.addZoom(el);
       }
     },
-    removeZoom(el) {
-      el.classList.remove('zoom');
-      el.style.backgroundImage = el.__backup.thumbnailImage;
+    removeZoom() {
+      const fullscreen = document.querySelector('.fullscreen');
+      const classesToRemove = Array.from(fullscreen.classList).filter(className =>
+        className.startsWith('zoom-image')
+      );
+
+      classesToRemove.forEach(className => fullscreen.classList.remove(className));
+      fullscreen.classList.remove('zoom');
+      // el.style.backgroundImage = el.__backup.thumbnailImage;
     },
     addZoom(el) {
-      el.classList.add('zoom');
-      el.style.backgroundImage = el.__backup.originalImage;
+      const parent = document.querySelector('.portfolio.container .items');
+      const index = Array.prototype.indexOf.call(parent.children, el);
+      const fullscreen = document.querySelector('.fullscreen');
+      fullscreen.classList.add(`zoom-image-${index+1}`);
+      fullscreen.classList.add('zoom');
+      // el.style.backgroundImage = el.__backup.originalImage;
       el.scrollIntoView();
     }
   }
