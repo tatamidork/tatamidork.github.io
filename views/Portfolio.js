@@ -9,7 +9,6 @@ export default {
     </div>
   `,
   setup(props, ctx) {
-    // ctx.emit('submit');
     console.log('Portfolio component mounted');
 
     const intervalId = setInterval(() => {
@@ -121,16 +120,17 @@ export default {
 
       classesToRemove.forEach(className => fullscreen.classList.remove(className));
       fullscreen.classList.remove('zoom');
-      // el.style.backgroundImage = el.__backup.thumbnailImage;
+      fullscreen.classList.remove('square');
     },
     addZoom(el) {
       const parent = document.querySelector('.portfolio.container .items');
-      const index = Array.prototype.indexOf.call(parent.children, el);
+      const index = Array.prototype.indexOf.call(parent.children, el) + 1;
       const fullscreen = document.querySelector('.fullscreen');
-      fullscreen.classList.add(`zoom-image-${index+1}`);
+      fullscreen.classList.add(`zoom-image-${index}`);
       fullscreen.classList.add('zoom');
-      // el.style.backgroundImage = el.__backup.originalImage;
-      el.scrollIntoView();
+      if ([4,5,6,12,22,23,25,27,30].includes(index)) {
+        fullscreen.classList.add('square');
+      }
     }
   }
 };
