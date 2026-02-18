@@ -35,6 +35,21 @@ body {
     height: 100%;
   }
 
+  .button {
+    color: var(--main-colors-1);
+    font-size: 2rem;
+    padding: 1rem 2.5rem;
+    border: 3px solid var(--main-colors-1);
+    background-color: var(--main-colors-2);
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover {
+      color: var(--main-colors-3);
+      border: 3px solid var(--main-colors-3);
+    }
+  }
+
   .developer-credit {
     cursor: pointer;
     text-decoration: none;
@@ -456,6 +471,93 @@ body {
       }
     }
 
+  }
+
+  .wallpapers {
+
+    &.container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px;
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        width: 31.5rem;
+        height: 38rem;
+        border-radius: 25px;
+        background-color: var(--main-colors-1);
+        
+
+        .card-body {
+          flex: 1;
+          position: relative;
+          padding: 10px;
+
+          .actions {
+            right: .4rem;
+            bottom: .6rem;
+            position: absolute;
+          }
+        }
+        .card-title {
+          font-size: 38px;
+        }
+        
+        .thumb {
+          width: 100%;
+          height: 31.5rem;
+          border-radius: 25px 25px 0 0;
+          background-repeat: no-repeat;
+          background-size: cover;
+          
+          &.image-1 {
+            background-image: url('./assets/wallpapers/Arcade Wall preview.png');
+          }
+          &.image-2 {
+            background-image: url('./assets/wallpapers/Feel the breeze Wall preview.png');
+          }
+          &.image-3 {
+            background-image: url('./assets/wallpapers/Game girl Wall preview.png');
+          }
+          &.image-4 {
+            background-image: url('./assets/wallpapers/Halloween wall preview.png');
+          }
+          &.image-5 {
+            background-image: url('./assets/wallpapers/Make a wish Wall preview.png');
+          }
+          &.image-6 {
+            background-image: url('./assets/wallpapers/Night ride Wall preview.png');
+          }
+          &.image-7 {
+            background-image: url('./assets/wallpapers/Reze wall preview.png');
+          }
+          &.image-8 {
+            background-image: url('./assets/wallpapers/See you in space wall preview.png');
+          }
+          &.image-9 {
+            background-image: url('./assets/wallpapers/Spring wall preview.png');
+          }
+          &.image-10 {
+            background-image: url('./assets/wallpapers/Summer wall preview.png');
+          }
+          &.image-11 {
+            background-image: url('./assets/wallpapers/SV Frieren preview.png');
+          }
+          &.image-12 {
+            background-image: url('./assets/wallpapers/Take care wall preview.png');
+          }
+          &.image-13 {
+            background-image: url('./assets/wallpapers/Tea time wall preview.png');
+          }
+          &.image-14 {
+            background-image: url('./assets/wallpapers/Wild crowd wall preview.png');
+          }
+        }
+      }
+    }
   }
 }
 

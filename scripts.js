@@ -4,6 +4,7 @@ import { createRouter, createWebHashHistory, useRouter } from 'vue-router';
 
 import Home from 'views/Home.js';
 import Portfolio from 'views/Portfolio.js';
+import Wallpapers from 'views/Wallpapers.js';
 
 const app = createApp({});
 
@@ -59,6 +60,8 @@ const NotFound = {
 const routes = [
   { path: '/', component: Home, name: 'home' },
   { path: '/Portfolio', component: Portfolio, name: 'Portfolio' },
+  { path: '/Wallpapers', component: Wallpapers, name: 'Wallpapers' },
+  { path: '/Wallpapers/:wallpaper', component: Wallpapers, name: 'Wallpapers-detail', props: true },
   // { path: '/select-user', component: SelectUser, name: 'select-user' },
   // { path: '/about', component: About, name: 'about' },
   // {
