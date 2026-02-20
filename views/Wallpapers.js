@@ -1,30 +1,77 @@
+import { useRoute } from 'vue-router';
+
+const validIds = [
+  "asd-1",
+  "asd-2",
+];
+const checkParameter = value => {
+  
+  if (value) {
+    if (!validIds.includes(value)) {
+      return '';
+    }
+  }
+
+  return value;
+};
+
 export default {
   template: /*html*/`
-    <div class="wallpapers container">
-      <!--div>selected: {{ $route.params.wallpaper }}</div-->
-      <div class="card" v-for="i in 14" :key="i">
-        <div class="thumb" :class="'image-' + i"></div>
+      <div class="wallpapers">
+        <div class="container" :class="{ blur: selectedWallpaper }">
+          <!--div>selected: {{ $route.params.wallpaper }}</div-->
+          <div class="card" v-for="i in 14" :key="i">
+            <div class="thumb" :class="'image-' + i"></div>
 
-        <div class="card-body">
-          <div class="card-title">Title</div>
+            <div class="card-body">
+              <div class="card-title">Title</div>
 
-          <div class="card-details">
-            Short description goes here.
-          </div>
+              <div class="card-details">
+                Short description goes here.
+              </div>
 
-          <div class="actions">
-            <div class="button" @click="goToHomePage(i)">
-              Download
+              <div class="actions">
+                <div class="button" @click="goToHomePage(i)">
+                  Download
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="loading-message">loading...</div>
+        </div>
+        <div v-if="selectedWallpaper" class="selected">
+          <div class="item-info">
+            <img :src="source[selectedWallpaper]" />
+            <div class="details">
+              <h2>Description</h2>
+              <div>
+                High-res wallpaper bundle for your Phone and/or iPad (any tablet in general).
+
+                Contains:
+                - Phone wallpaper for vertical 19.5:9 aspect ratio (1440 x 3120 px PNG)
+                - Ipad Wallpaper for vertical 3:4 aspect ratio ( 2048 x 2732 px PNG)
+
+                NOTE: Images are only to be used for the intended purpose (wallpapers). Printing, reproduction, or any other use is strictly PROHIBITED.
+                {{ source[selectedWallpaper] }}
+              </div>
+            </div>
+          </div>
+          <div class="purchase-info">
+            Title
           </div>
         </div>
       </div>
-      <div @click="onSelect" class="fullscreen"></div>
-      <div class="loading-message">loading...</div>
-    </div>
   `,
+  beforeRouteUpdate(to, from, next) {
+    this.selectedWallpaper = checkParameter(to.params.wallpaper);
+    next();
+  },
   setup(props, ctx) {
     console.log('Wallpapers component mounted');
+
+    const route = useRoute();
+
+    const selectedWallpaper = checkParameter(route.params.wallpaper);
 
     const intervalId = setInterval(() => {
       if (document.getElementById('loading').classList.contains('hidden')) {
@@ -32,6 +79,14 @@ export default {
         clearInterval(intervalId);
       }
     }, 100);
+
+    return {
+      selectedWallpaper,
+      source: {
+        "asd-1": "./assets/wallpapers/Arcade Wall preview.png",
+        "asd-2": "./assets/wallpapers/Arcade Wall preview.png",
+      }
+    };
   },
   methods: {
     goToHomePage(index) {

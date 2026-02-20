@@ -33,12 +33,18 @@ body {
 
   .main {
     height: 100%;
+
+    &:has(.wallpapers .selected) {
+      overflow: hidden;
+    }
   }
 
   .button {
     color: var(--main-colors-1);
-    font-size: 2rem;
-    padding: 1rem 2.5rem;
+    /*font-size: 2rem;
+    padding: 1rem 2.5rem;*/
+    font-size: 1rem;
+    padding: .5rem 1rem;
     border: 3px solid var(--main-colors-1);
     background-color: var(--main-colors-2);
     cursor: pointer;
@@ -48,6 +54,10 @@ body {
       color: var(--main-colors-3);
       border: 3px solid var(--main-colors-3);
     }
+  }
+
+  .blur {
+    filter: blur(5px);
   }
 
   .developer-credit {
@@ -470,23 +480,25 @@ body {
         }
       }
     }
-
   }
 
   .wallpapers {
+    padding: 3vh 24vw;
 
-    &.container {
+    .container {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 28px;
+      gap: 34px;
 
       .card {
         display: flex;
         flex-direction: column;
-        width: 31.5rem;
-        height: 38rem;
+        /*width: 31.5rem;
+        height: 38rem;*/
+        width: 19rem;
+        height: 23rem;
         border-radius: 25px;
         background-color: var(--main-colors-1);
         
@@ -494,7 +506,7 @@ body {
         .card-body {
           flex: 1;
           position: relative;
-          padding: 10px;
+          padding: 10px 20px;
 
           .actions {
             right: .4rem;
@@ -556,6 +568,38 @@ body {
             background-image: url('./assets/wallpapers/Wild crowd wall preview.png');
           }
         }
+      }
+    }
+
+    .selected {
+      display: flex;
+      position: fixed;
+      background-color: var(--main-colors-1);
+      width: calc(100% - 20vw * 2);
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: 20vh 20vw;
+      margin-bottom: 0;
+      border-radius: 35px;
+
+      .item-info {
+            
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        img {
+          height: 50vh;
+        }
+
+        .details {
+          padding: 20px;
+        }
+      }
+      
+      > * {
+        flex: 1;
       }
     }
   }

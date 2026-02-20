@@ -83,7 +83,7 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(), // switch to createWebHistory() if you have server rewrite support
   routes,
-  scrollBehavior() { return { top: 0 }; }
+  // scrollBehavior() { return { top: 0 }; }
 });
 
 // Global guard (example)
