@@ -36,7 +36,7 @@ export default {
   methods: {
     goToHomePage(index) {
       // Using a string path
-      this.$router.push(`asd-${index}`);
+      this.$router.push(`./asd-${index}`);
 
       // // Using a named route with params
       // this.$router.push({ name: 'UserProfile', params: { id: '123' } });

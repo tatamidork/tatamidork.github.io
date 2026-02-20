@@ -59,9 +59,15 @@ const NotFound = {
 // Routes
 const routes = [
   { path: '/', component: Home, name: 'home' },
-  { path: '/Portfolio', component: Portfolio, name: 'Portfolio' },
-  { path: '/Wallpapers', component: Wallpapers, name: 'Wallpapers' },
-  { path: '/Wallpapers/:wallpaper', component: Wallpapers, name: 'Wallpapers-detail', props: true },
+  { path: '/Portfolio/', component: Portfolio, name: 'Portfolio' },
+  { path: '/Wallpapers/', component: Wallpapers, name: 'Wallpapers',
+    strict: true,
+   },
+  {
+    path: '/Wallpapers/:wallpaper',
+    component: Wallpapers,
+    name: 'Wallpapers-detail',
+  },
   // { path: '/select-user', component: SelectUser, name: 'select-user' },
   // { path: '/about', component: About, name: 'about' },
   // {
@@ -86,6 +92,11 @@ router.beforeEach((to, from, next) => {
   if (to.name === 'user' && Number(to.params.id) < 0) {
     return next({ name: 'select-user' });
   }
+
+  if (!to.path.endsWith('/') && to.path.length > 0 && !to.path.includes('wallpapers/')) {
+    return next({ path: to.path + '/', query: to.query, params: to.params, hash: to.hash });
+  }
+
   next();
 });
 
