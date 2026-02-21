@@ -33,6 +33,90 @@ body {
 
   .main {
     height: 100%;
+
+    /*
+    &:has(.wallpapers .selected) {
+      overflow: hidden;
+    }
+    */
+  }
+
+  .text-mid-size {
+    font-size: 1.5rem;
+  }
+
+  .button {
+    color: var(--main-colors-1);
+    /*font-size: 2rem;
+    padding: 1rem 2.5rem;*/
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border: 3px solid var(--main-colors-1);
+    background-color: var(--main-colors-2);
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover {
+      color: var(--main-colors-3);
+      border: 3px solid var(--main-colors-3);
+    }
+  }
+
+  .share-options {
+    display: flex;
+    gap: 5px;
+  }
+  .share-button {
+
+    > i {
+      display: block;
+      background-color: var(--main-colors-3);
+      height: 67px;
+      width: 67px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &.twitter i {
+      background-image: url(./assets/x-icon-t.png);
+    }
+    &.facebook i {
+      background-image: url(./assets/facebook.png);
+      background-position: 1rem;
+      background-repeat: no-repeat;
+      background-size: 38px;
+    }
+  }
+
+  .close-button {
+    display: block;
+    background-color: var(--main-colors-3);
+    height: 67px;
+    width: 67px;
+    border-radius: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  input.price {
+    font-family: 'ByteBounce';
+    font-size: 3rem;
+    border-radius: 8px;
+    padding: 8px 16px;
+    height: 46px;
+    margin: 10px 0;
+  }
+
+  .blur {
+    filter: blur(5px);
   }
 
   .developer-credit {
@@ -455,7 +539,151 @@ body {
         }
       }
     }
+  }
 
+  .wallpapers {
+    padding: 3vh 24vw;
+
+    .container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 34px;
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        /*width: 31.5rem;
+        height: 38rem;*/
+        width: 19rem;
+        height: 23rem;
+        border-radius: 25px;
+        background-color: var(--main-colors-1);
+        
+
+        .card-body {
+          flex: 1;
+          position: relative;
+          padding: 10px 20px;
+
+          .actions {
+            right: .4rem;
+            bottom: .6rem;
+            position: absolute;
+          }
+        }
+        .card-title {
+          font-size: 38px;
+        }
+        
+        .thumb {
+          width: 100%;
+          height: 31.5rem;
+          border-radius: 25px 25px 0 0;
+          background-repeat: no-repeat;
+          background-size: cover;
+
+          &.arcade {
+            background-image: url('./assets/wallpapers/Arcade Wall preview.png');
+          }
+        
+          &.feel-the-breeze {
+            background-image: url('./assets/wallpapers/Feel the breeze Wall preview.png');
+          }
+        
+          &.game-girl {
+            background-image: url('./assets/wallpapers/Game girl Wall preview.png');
+          }
+        
+          &.halloween {
+            background-image: url('./assets/wallpapers/Halloween wall preview.png');
+          }
+        
+          &.make-a-wish {
+            background-image: url('./assets/wallpapers/Make a wish Wall preview.png');
+          }
+        
+          &.night-ride {
+            background-image: url('./assets/wallpapers/Night ride Wall preview.png');
+          }
+        
+          &.reze {
+            background-image: url('./assets/wallpapers/Reze wall preview.png');
+          }
+        
+          &.see-you-in-space {
+            background-image: url('./assets/wallpapers/See you in space wall preview.png');
+          }
+        
+          &.spring {
+            background-image: url('./assets/wallpapers/Spring wall preview.png');
+          }
+        
+          &.summer {
+            background-image: url('./assets/wallpapers/Summer wall preview.png');
+          }
+        
+          &.sv-frieren {
+            background-image: url('./assets/wallpapers/SV Frieren preview.png');
+          }
+        
+          &.take-care {
+            background-image: url('./assets/wallpapers/Take care wall preview.png');
+          }
+        
+          &.tea-time {
+            background-image: url('./assets/wallpapers/Tea time wall preview.png');
+          }
+        
+          &.wild-crowd {
+            background-image: url('./assets/wallpapers/Wild crowd wall preview.png');
+          }
+        }
+      }
+    }
+
+    .selected {
+      display: flex;
+      position: fixed;
+      background-color: var(--main-colors-1);
+      width: calc(100% - 20vw * 2);
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: 20vh 20vw;
+      margin-bottom: 0;
+      border-radius: 35px;
+
+      .item-info {
+            
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          height: 50vh;
+        }
+
+        .details {
+          padding: 20px;
+        }
+
+      }
+    
+      .purchase-info {
+        .button.buy-download-button {
+          display: block;
+          width: 27rem;
+          text-align: center;
+          font-size: 3rem;
+        }
+      }
+
+      > * {
+        flex: 1;
+      }
+    }
   }
 }
 

@@ -4,6 +4,7 @@ import { createRouter, createWebHashHistory, useRouter } from 'vue-router';
 
 import Home from 'views/Home.js';
 import Portfolio from 'views/Portfolio.js';
+import Wallpapers from 'views/Wallpapers.js';
 
 const app = createApp({});
 
@@ -58,7 +59,15 @@ const NotFound = {
 // Routes
 const routes = [
   { path: '/', component: Home, name: 'home' },
-  { path: '/Portfolio', component: Portfolio, name: 'Portfolio' },
+  { path: '/Portfolio/', component: Portfolio, name: 'Portfolio' },
+  { path: '/Wallpapers/', component: Wallpapers, name: 'Wallpapers',
+    strict: true,
+   },
+  {
+    path: '/Wallpapers/:wallpaper',
+    component: Wallpapers,
+    name: 'Wallpapers-detail',
+  },
   // { path: '/select-user', component: SelectUser, name: 'select-user' },
   // { path: '/about', component: About, name: 'about' },
   // {
@@ -74,7 +83,7 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(), // switch to createWebHistory() if you have server rewrite support
   routes,
-  scrollBehavior() { return { top: 0 }; }
+  // scrollBehavior() { return { top: 0 }; }
 });
 
 // Global guard (example)
@@ -83,6 +92,11 @@ router.beforeEach((to, from, next) => {
   if (to.name === 'user' && Number(to.params.id) < 0) {
     return next({ name: 'select-user' });
   }
+
+  if (!to.path.endsWith('/') && to.path.length > 0 && !to.path.includes('wallpapers/')) {
+    return next({ path: to.path + '/', query: to.query, params: to.params, hash: to.hash });
+  }
+
   next();
 });
 

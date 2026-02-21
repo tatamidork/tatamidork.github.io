@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=1, user-scalable=yes"/>
 
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tatamidork.com.ar" />
+    <meta property="og:title" content="TatamiDork | Pixel Art & Portfolio" />
+    <meta property="og:description" content="Explora el universo de píxeles de TatamiDork. Ilustraciones, animaciones y diseño digital con estética retro." />
+    <meta property="og:image" content="https://tatamidork.com.ar/assets/logo_vert3.png" />
+
+    <meta name="twitter:card" content="./assets/logo_vert3.png" />
+    <meta name="twitter:title" content="TatamiDork | Pixel Art Portfolio" />
+    <meta name="twitter:description" content="Arte digital pixelado y diseños con alma de 8-bits. ¡Pasate a ver mi portfolio!" />
+    <meta name="twitter:image" content="https://tatamidork.com/assets/logo_vert3.png" />
+
 		<title>TATAMIDORK</title>
 		<link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.png">
@@ -61,7 +72,7 @@
             const mainContent = document.querySelector(selector);
             mainContent.classList.remove('hidden');
           }
-        }, 1000);
+        }, 100);
         
         clearInterval(intervalId);
       }
@@ -71,6 +82,6 @@
       const intervalId = setInterval(() => {
         check(intervalId);
       }, 100);
-    }, 2000);
+    }, 100);
   </script>
 </html>

@@ -45,7 +45,7 @@ export default {
       this.open(`https://www.threads.com/@${name}`);
     },
     toPortfolio() {
-      window.location.hash = '#/portfolio';
+      window.location.hash = '#/portfolio/';
     }
   }
 };
