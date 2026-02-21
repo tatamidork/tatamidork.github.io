@@ -1,13 +1,26 @@
 import { useRoute } from 'vue-router';
 
-const validIds = [
-  "asd-1",
-  "asd-2",
-];
+const base = './assets/wallpapers/';
+const data = {
+  "Arcade": { source: `${base}Arcade Wall preview.png`, class: "arcade" },
+  "Feel the breeze": { source: `${base}Feel the breeze Wall preview.png`, class: "feel-the-breeze" },
+  "Game girl": { source: `${base}Game girl Wall preview.png`, class: "game-girl" },
+  "Halloween": { source: `${base}Halloween wall preview.png`, class: "halloween" },
+  "Make a wish": { source: `${base}Make a wish Wall preview.png`, class: "make-a-wish" },
+  "Night ride": { source: `${base}Night ride Wall preview.png`, class: "night-ride" },
+  "Reze": { source: `${base}Reze wall preview.png`, class: "reze" },
+  "See you in space": { source: `${base}See you in space wall preview.png`, class: "see-you-in-space" },
+  "Spring": { source: `${base}Spring wall preview.png`, class: "spring" },
+  "Summer": { source: `${base}Summer wall preview.png`, class: "summer" },
+  "SV Frieren": { source: `${base}SV Frieren preview.png`, class: "sv-frieren" },
+  "Take care": { source: `${base}Take care wall preview.png`, class: "take-care" },
+  "Tea time": { source: `${base}Tea time wall preview.png`, class: "tea-time" },
+  "Wild crowd": { source: `${base}Wild crowd wall preview.png`, class: "wild-crowd" }
+};
 const checkParameter = value => {
   
   if (value) {
-    if (!validIds.includes(value)) {
+    if (!Object.keys(data).includes(value)) {
       return '';
     }
   }
@@ -20,8 +33,8 @@ export default {
       <div class="wallpapers">
         <div class="container" :class="{ blur: selectedWallpaper }">
           <!--div>selected: {{ $route.params.wallpaper }}</div-->
-          <div class="card" v-for="i in 14" :key="i">
-            <div class="thumb" :class="'image-' + i"></div>
+          <div class="card" v-for="([key, item], index) of Object.entries(data)" :key="index">
+            <div class="thumb" :class="{ [item.class]: true }"></div>
 
             <div class="card-body">
               <div class="card-title">Title</div>
@@ -31,7 +44,7 @@ export default {
               </div>
 
               <div class="actions">
-                <div class="button" @click="goToHomePage(i)">
+                <div class="button" @click="selectItem(key)">
                   Download
                 </div>
               </div>
@@ -41,10 +54,10 @@ export default {
         </div>
         <div v-if="selectedWallpaper" class="selected">
           <div class="item-info">
-            <img :src="source[selectedWallpaper]" />
+            <img :src="data[selectedWallpaper].source" />
             <div class="details">
               <h2>Description</h2>
-              <div>
+              <div class="description text-mid-size">
                 High-res wallpaper bundle for your Phone and/or iPad (any tablet in general).
 
                 Contains:
@@ -52,12 +65,45 @@ export default {
                 - Ipad Wallpaper for vertical 3:4 aspect ratio ( 2048 x 2732 px PNG)
 
                 NOTE: Images are only to be used for the intended purpose (wallpapers). Printing, reproduction, or any other use is strictly PROHIBITED.
-                {{ source[selectedWallpaper] }}
               </div>
             </div>
           </div>
           <div class="purchase-info">
-            Title
+            <div class="close-button" @click="unselectItem()">
+              <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjU2IDI1NiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8bWV0YWRhdGE+IFN2ZyBWZWN0b3IgSWNvbnMgOiBodHRwOi8vd3d3Lm9ubGluZXdlYmZvbnRzLmNvbS9pY29uIDwvbWV0YWRhdGE+DQo8Zz48Zz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTk4LjgsMTA0LjRWODAuOGgyMy42VjU3LjJIMjQ2VjEwaC00Ny4ydjIzLjZoLTIzLjZ2MjMuNmgtMjMuNnYyMy42aC00Ny4yVjU3LjJIODAuOFYzMy42SDU3LjJWMTBIMTB2NDcuMmgyMy42djIzLjZoMjMuNnYyMy42aDIzLjZ2NDcuMkg1Ny4ydjIzLjZIMzMuNnYyMy42SDEwVjI0Nmg0Ny4ydi0yMy42aDIzLjZ2LTIzLjZoMjMuNnYtMjMuNmg0Ny4ydjIzLjZoMjMuNnYyMy42aDIzLjZWMjQ2SDI0NnYtNDcuMmgtMjMuNnYtMjMuNmgtMjMuNnYtMjMuNmgtMjMuNnYtNDcuMkgxOTguOHoiLz48L2c+PC9nPg0KPC9zdmc+" width="16" height="16">
+            </div>
+            <h1>Title</h1>
+            <span class="text-mid-size">How much would you like to pay?</span>
+            <input
+              id="payWhatYouWantInput"
+              placeholder="$0 or more" min="0"
+              type="number"
+              inputmode="decimal"
+              autocomplete="off"
+              class="price"
+            />
+            <div class="button buy-download-button" @click="buyDownload(selectedWallpaper)">
+              Buy or download
+            </div>
+            <h2>Share this</h2>
+            <div class="share-options">
+              <a
+                class="share-button facebook"
+                href="https://www.facebook.com/sharer.php?u=https%3A//tatamidork.com.ar/%23/wallpapers/asd-1&ref=fbshare&t=Tatamidork+added+a+new+item+to+their+Shop"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i></i>
+              </a>
+              <a
+                class="share-button twitter"
+                data-via="tatamidork_button"
+                data-url="https://tatamidork.com.ar/#/wallpapers/asd-1"
+                data-text="Tatamidork added a new item to their Shop"
+                href="https://twitter.com/intent/tweet?text=Tatamidork+added+a+new+item+to+their+Shop&amp;url=https%3A//tatamidork.com.ar/%23/wallpapers/asd-1">
+                <i></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -82,53 +128,20 @@ export default {
 
     return {
       selectedWallpaper,
-      source: {
-        "asd-1": "./assets/wallpapers/Arcade Wall preview.png",
-        "asd-2": "./assets/wallpapers/Arcade Wall preview.png",
-      }
+      data: data,
     };
   },
   methods: {
-    goToHomePage(index) {
-      // Using a string path
-      this.$router.push(`./asd-${index}`);
-
-      // // Using a named route with params
-      // this.$router.push({ name: 'UserProfile', params: { id: '123' } });
-
-      // // With query parameters (results in /register?plan=private)
-      // this.$router.push({ path: '/register', query: { plan: 'private' } });
+    unselectItem() {
+      this.selectedWallpaper = null;
+      this.$router.push(`./`);
     },
-    onSelect(event) {
-      const el = event.target;
-      if (el.classList.contains('zoom')) {
-        this.removeZoom(el);
-      } else {
-        for (const child of document.querySelectorAll('.portfolio .art')) {
-          this.removeZoom(child);
-        }
-        this.addZoom(el);
-      }
+    selectItem(itemName) {
+      this.selectedWallpaper = itemName;
+      this.$router.push(`./${itemName}`);
     },
-    removeZoom() {
-      const fullscreen = document.querySelector('.fullscreen');
-      const classesToRemove = Array.from(fullscreen.classList).filter(className =>
-        className.startsWith('zoom-image')
-      );
+    buyDownload(itemName) {
 
-      classesToRemove.forEach(className => fullscreen.classList.remove(className));
-      fullscreen.classList.remove('zoom');
-      fullscreen.classList.remove('square');
-    },
-    addZoom(el) {
-      const parent = document.querySelector('.portfolio.container .items');
-      const index = Array.prototype.indexOf.call(parent.children, el) + 1;
-      const fullscreen = document.querySelector('.fullscreen');
-      fullscreen.classList.add(`zoom-image-${index}`);
-      fullscreen.classList.add('zoom');
-      if ([4,5,6,12,22,23,25,27,30].includes(index)) {
-        fullscreen.classList.add('square');
-      }
     }
   }
 };

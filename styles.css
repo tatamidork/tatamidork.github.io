@@ -34,9 +34,15 @@ body {
   .main {
     height: 100%;
 
+    /*
     &:has(.wallpapers .selected) {
       overflow: hidden;
     }
+    */
+  }
+
+  .text-mid-size {
+    font-size: 1.5rem;
   }
 
   .button {
@@ -54,6 +60,59 @@ body {
       color: var(--main-colors-3);
       border: 3px solid var(--main-colors-3);
     }
+  }
+
+  .share-options {
+    display: flex;
+    gap: 5px;
+  }
+  .share-button {
+
+    > i {
+      display: block;
+      background-color: var(--main-colors-3);
+      height: 67px;
+      width: 67px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &.twitter i {
+      background-image: url(./assets/x-icon-t.png);
+    }
+    &.facebook i {
+      background-image: url(./assets/facebook.png);
+      background-position: 1rem;
+      background-repeat: no-repeat;
+      background-size: 38px;
+    }
+  }
+
+  .close-button {
+    display: block;
+    background-color: var(--main-colors-3);
+    height: 67px;
+    width: 67px;
+    border-radius: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  input.price {
+    font-family: 'ByteBounce';
+    font-size: 3rem;
+    border-radius: 8px;
+    padding: 8px 16px;
+    height: 46px;
+    margin: 10px 0;
   }
 
   .blur {
@@ -524,47 +583,60 @@ body {
           border-radius: 25px 25px 0 0;
           background-repeat: no-repeat;
           background-size: cover;
-          
-          &.image-1 {
+
+          &.arcade {
             background-image: url('./assets/wallpapers/Arcade Wall preview.png');
           }
-          &.image-2 {
+        
+          &.feel-the-breeze {
             background-image: url('./assets/wallpapers/Feel the breeze Wall preview.png');
           }
-          &.image-3 {
+        
+          &.game-girl {
             background-image: url('./assets/wallpapers/Game girl Wall preview.png');
           }
-          &.image-4 {
+        
+          &.halloween {
             background-image: url('./assets/wallpapers/Halloween wall preview.png');
           }
-          &.image-5 {
+        
+          &.make-a-wish {
             background-image: url('./assets/wallpapers/Make a wish Wall preview.png');
           }
-          &.image-6 {
+        
+          &.night-ride {
             background-image: url('./assets/wallpapers/Night ride Wall preview.png');
           }
-          &.image-7 {
+        
+          &.reze {
             background-image: url('./assets/wallpapers/Reze wall preview.png');
           }
-          &.image-8 {
+        
+          &.see-you-in-space {
             background-image: url('./assets/wallpapers/See you in space wall preview.png');
           }
-          &.image-9 {
+        
+          &.spring {
             background-image: url('./assets/wallpapers/Spring wall preview.png');
           }
-          &.image-10 {
+        
+          &.summer {
             background-image: url('./assets/wallpapers/Summer wall preview.png');
           }
-          &.image-11 {
+        
+          &.sv-frieren {
             background-image: url('./assets/wallpapers/SV Frieren preview.png');
           }
-          &.image-12 {
+        
+          &.take-care {
             background-image: url('./assets/wallpapers/Take care wall preview.png');
           }
-          &.image-13 {
+        
+          &.tea-time {
             background-image: url('./assets/wallpapers/Tea time wall preview.png');
           }
-          &.image-14 {
+        
+          &.wild-crowd {
             background-image: url('./assets/wallpapers/Wild crowd wall preview.png');
           }
         }
@@ -588,7 +660,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
         img {
           height: 50vh;
         }
@@ -596,8 +668,18 @@ body {
         .details {
           padding: 20px;
         }
+
       }
-      
+    
+      .purchase-info {
+        .button.buy-download-button {
+          display: block;
+          width: 27rem;
+          text-align: center;
+          font-size: 3rem;
+        }
+      }
+
       > * {
         flex: 1;
       }
