@@ -5,7 +5,7 @@ export default {
     <div class="home box-centered">
       <div class="main-logo"></div>
       <span class="normal">
-        PIXEL ARTIST &#9724; ANIMADOR
+        PIXEL ARTIST &#9724; ANIMATOR
       </span>
       <div class="icons">
         <div class="email-icon" @click="sendTo"></div>
@@ -16,7 +16,8 @@ export default {
         <div class="cara-icon" @click="openCara"></div>
         <div class="threads-icon" @click="openThreads"></div>
       </div>
-      <span class="big" @click="toPortfolio">PORTFOLIO</span>
+      <span class="big" @click="() => goTo('portfolio')">PORTFOLIO</span>
+      <!--span class="big" @click="() => goTo('wallpapers')">WALLPAPERS</span-->
     </div>
   `,
   methods: {
@@ -44,8 +45,8 @@ export default {
     openThreads() {
       this.open(`https://www.threads.com/@${name}`);
     },
-    toPortfolio() {
-      window.location.hash = '#/portfolio/';
+    goTo(path) {
+      window.location.hash = `#/${path}/`;
     }
   }
 };

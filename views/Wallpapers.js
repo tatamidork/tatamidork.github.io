@@ -1,5 +1,7 @@
 import { useRoute } from 'vue-router';
 
+import MainHeader from 'components/MainHeader.js';
+
 const base = './assets/wallpapers/';
 const data = {
   "Arcade": { source: `${base}Arcade Wall preview.png`, class: "arcade" },
@@ -31,6 +33,10 @@ const checkParameter = value => {
 export default {
   template: /*html*/`
       <div class="wallpapers">
+        <main-header
+          title="Wallpapers"
+        >
+        </main-header>
         <div class="container" :class="{ blur: selectedWallpaper }">
           <!--div>selected: {{ $route.params.wallpaper }}</div-->
           <div class="card" v-for="([key, item], index) of Object.entries(data)" :key="index">
@@ -75,7 +81,7 @@ export default {
             <!--div class="close-button" @click="unselectItem()">
               <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjU2IDI1NiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8bWV0YWRhdGE+IFN2ZyBWZWN0b3IgSWNvbnMgOiBodHRwOi8vd3d3Lm9ubGluZXdlYmZvbnRzLmNvbS9pY29uIDwvbWV0YWRhdGE+DQo8Zz48Zz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTk4LjgsMTA0LjRWODAuOGgyMy42VjU3LjJIMjQ2VjEwaC00Ny4ydjIzLjZoLTIzLjZ2MjMuNmgtMjMuNnYyMy42aC00Ny4yVjU3LjJIODAuOFYzMy42SDU3LjJWMTBIMTB2NDcuMmgyMy42djIzLjZoMjMuNnYyMy42aDIzLjZ2NDcuMkg1Ny4ydjIzLjZIMzMuNnYyMy42SDEwVjI0Nmg0Ny4ydi0yMy42aDIzLjZ2LTIzLjZoMjMuNnYtMjMuNmg0Ny4ydjIzLjZoMjMuNnYyMy42aDIzLjZWMjQ2SDI0NnYtNDcuMmgtMjMuNnYtMjMuNmgtMjMuNnYtMjMuNmgtMjMuNnYtNDcuMkgxOTguOHoiLz48L2c+PC9nPg0KPC9zdmc+" width="16" height="16">
             </div-->
-            <h1>Title</h1>
+            <h1>{{ selectedWallpaper }}</h1>
             <div class="text-mid-size">How much would you like to pay?</div>
             <input
               id="payWhatYouWantInput"
@@ -159,5 +165,8 @@ export default {
         this.unselectItem();
       }
     }
+  },
+  components: {
+    MainHeader,
   }
 };
