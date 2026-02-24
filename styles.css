@@ -41,7 +41,6 @@ body {
     */
   }
 
-
   header {
     display: flex;
     flex-direction: column;
@@ -55,7 +54,6 @@ body {
     color: var(--main-colors-1);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    cursor: pointer;
     
     &:not(:has(> ul)) {
       height: 4rem;
@@ -63,6 +61,7 @@ body {
 
     .title img {
       height: 4rem;
+      cursor: pointer;
 
       &:hover {
         background-color: var(--main-colors-3);
@@ -95,10 +94,14 @@ body {
     padding: .5rem 1rem;
     border: 3px solid var(--main-colors-1);
     background-color: var(--main-colors-2);
-    cursor: pointer;
     display: inline-block;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE 10+ and Edge */
+    user-select: none;         /* Standard syntax */
 
-    &:hover {
+    &:not(.disabled):hover {
+      cursor: pointer;
       color: var(--main-colors-3);
       border: 3px solid var(--main-colors-3);
     }
@@ -295,11 +298,11 @@ body {
     &.container {
       width: 100%;
       padding-top: 4rem;
-      // display: flex;
-      // justify-content: center;
-      // height: 94%;
-      // gap: 10px;
-      // padding: 1rem 0;
+      /* display: flex;
+      justify-content: center;
+      height: 94%;
+      gap: 10px;
+      padding: 1rem 0;*/
         
       .zoom {
         position: fixed;
@@ -330,7 +333,7 @@ body {
       > div {
         flex: 0 0 120px;
         border-radius: 0.5rem;
-        // transition: 0.5s ease-in-out;
+        /* transition: 0.5s ease-in-out; */
         cursor: pointer;
         box-shadow: 1px 5px 15px black;
         position: relative;
@@ -594,7 +597,7 @@ body {
   }
 
   .wallpapers {
-    padding: 3vh 24vw;
+    padding: 3vh 16vw;
 
     .container {
       width: 100%;
@@ -605,15 +608,22 @@ body {
       margin-top: 4rem;
 
       .card {
+        position: relative;
         display: flex;
         flex-direction: column;
-        /*width: 31.5rem;
-        height: 38rem;*/
-        width: 19rem;
+        width: 19.8rem;
         height: 23rem;
         border-radius: 25px;
         background-color: var(--main-colors-1);
         
+        .info-value {
+          position: absolute;
+          background-color: var(--main-colors-3);
+          right: 10px;
+          top: 10px;
+          padding: 4px;
+          border-radius: 6px;
+        }
 
         .card-body {
           flex: 1;
@@ -627,7 +637,7 @@ body {
           }
         }
         .card-title {
-          font-size: 38px;
+          font-size: 1.5rem;
         }
         
         .thumb {
@@ -744,6 +754,10 @@ body {
           width: 27rem;
           text-align: center;
           font-size: 3rem;
+
+          &.disabled {
+            filter: opacity(0.3);
+          }
         }
       }
 
