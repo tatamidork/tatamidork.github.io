@@ -643,35 +643,46 @@ body {
       }
     }
 
+    .close-on-click {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
     .selected {
       display: flex;
       position: fixed;
       background-color: var(--main-colors-1);
       width: calc(100% - 20vw * 2);
-      height: 100%;
-      top: 0;
+      height: 84vh;
+      top: 16vh;
       left: 0;
-      margin: 20vh 20vw;
+      margin: 0 20vw;
       margin-bottom: 0;
-      border-radius: 35px;
+      border-radius: 35px 35px 0 0;
 
       .item-info {
             
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 20px 0;
 
         img {
           height: 50vh;
         }
 
         .details {
-          padding: 20px;
+          padding: 0 20px;
         }
 
       }
     
       .purchase-info {
+        padding-right: 20px;
+
         .button.buy-download-button {
           display: block;
           width: 27rem;

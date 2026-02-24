@@ -52,28 +52,31 @@ export default {
           </div>
           <div class="loading-message">loading...</div>
         </div>
+        <div v-if="selectedWallpaper" class="close-on-click" @click="unselectItem()">
+        </div>
         <div v-if="selectedWallpaper" class="selected">
           <div class="item-info">
             <img :src="data[selectedWallpaper].source" />
             <div class="details">
               <h2>Description</h2>
               <div class="description text-mid-size">
-                High-res wallpaper bundle for your Phone and/or iPad (any tablet in general).
-
-                Contains:
-                - Phone wallpaper for vertical 19.5:9 aspect ratio (1440 x 3120 px PNG)
-                - Ipad Wallpaper for vertical 3:4 aspect ratio ( 2048 x 2732 px PNG)
-
-                NOTE: Images are only to be used for the intended purpose (wallpapers). Printing, reproduction, or any other use is strictly PROHIBITED.
+                Pixel art Animated / Static Wallpaper.<br>
+                <br>
+                Includes:<br>
+                &nbsp;&nbsp;Animated version (MP4)<br>
+                &nbsp;&nbsp;Static version (PNG)<br>
+                Optimized for:<br>
+                &nbsp;&nbsp;Android - 1440 x 3200 px<br>
+                &nbsp;&nbsp;Iphone - 1170 x 2535 px<br>
               </div>
             </div>
           </div>
           <div class="purchase-info">
-            <div class="close-button" @click="unselectItem()">
+            <!--div class="close-button" @click="unselectItem()">
               <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjU2IDI1NiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8bWV0YWRhdGE+IFN2ZyBWZWN0b3IgSWNvbnMgOiBodHRwOi8vd3d3Lm9ubGluZXdlYmZvbnRzLmNvbS9pY29uIDwvbWV0YWRhdGE+DQo8Zz48Zz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTk4LjgsMTA0LjRWODAuOGgyMy42VjU3LjJIMjQ2VjEwaC00Ny4ydjIzLjZoLTIzLjZ2MjMuNmgtMjMuNnYyMy42aC00Ny4yVjU3LjJIODAuOFYzMy42SDU3LjJWMTBIMTB2NDcuMmgyMy42djIzLjZoMjMuNnYyMy42aDIzLjZ2NDcuMkg1Ny4ydjIzLjZIMzMuNnYyMy42SDEwVjI0Nmg0Ny4ydi0yMy42aDIzLjZ2LTIzLjZoMjMuNnYtMjMuNmg0Ny4ydjIzLjZoMjMuNnYyMy42aDIzLjZWMjQ2SDI0NnYtNDcuMmgtMjMuNnYtMjMuNmgtMjMuNnYtMjMuNmgtMjMuNnYtNDcuMkgxOTguOHoiLz48L2c+PC9nPg0KPC9zdmc+" width="16" height="16">
-            </div>
+            </div-->
             <h1>Title</h1>
-            <span class="text-mid-size">How much would you like to pay?</span>
+            <div class="text-mid-size">How much would you like to pay?</div>
             <input
               id="payWhatYouWantInput"
               placeholder="$0 or more" min="0"
@@ -108,9 +111,11 @@ export default {
         </div>
       </div>
   `,
-  beforeRouteUpdate(to, from, next) {
-    this.selectedWallpaper = checkParameter(to.params.wallpaper);
-    next();
+  watch: {
+    $route (to, from, next) {
+      this.selectedWallpaper = checkParameter(to.params.wallpaper);
+      next();
+    }
   },
   setup(props, ctx) {
     console.log('Wallpapers component mounted');
@@ -131,6 +136,12 @@ export default {
       data: data,
     };
   },
+  mounted() {
+    window.addEventListener('keydown', this.handleGlobalEscape);
+  },
+  unmounted() {
+    window.removeEventListener('keydown', this.handleGlobalEscape);
+  },
   methods: {
     unselectItem() {
       this.selectedWallpaper = null;
@@ -142,6 +153,11 @@ export default {
     },
     buyDownload(itemName) {
 
+    },
+    handleGlobalEscape(event) {
+      if (event.key === 'Escape') {
+        this.unselectItem();
+      }
     }
   }
 };
