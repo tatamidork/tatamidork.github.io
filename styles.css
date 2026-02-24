@@ -41,6 +41,47 @@ body {
     */
   }
 
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 0 0 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--main-colors-2);
+    color: var(--main-colors-1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    
+    &:not(:has(> ul)) {
+      height: 4rem;
+    }
+
+    .title img {
+      height: 4rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--main-colors-3);
+      }
+    }
+
+    > .title {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      gap: 10px;
+    }
+
+    .info {
+      position: absolute;
+      right: 5rem;
+      top: 28px;
+    }
+  }
+
   .text-mid-size {
     font-size: 1.5rem;
   }
@@ -53,10 +94,14 @@ body {
     padding: .5rem 1rem;
     border: 3px solid var(--main-colors-1);
     background-color: var(--main-colors-2);
-    cursor: pointer;
     display: inline-block;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE 10+ and Edge */
+    user-select: none;         /* Standard syntax */
 
-    &:hover {
+    &:not(.disabled):hover {
+      cursor: pointer;
       color: var(--main-colors-3);
       border: 3px solid var(--main-colors-3);
     }
@@ -106,15 +151,6 @@ body {
     top: 1rem;
   }
 
-  input.price {
-    font-family: 'ByteBounce';
-    font-size: 3rem;
-    border-radius: 8px;
-    padding: 8px 16px;
-    height: 46px;
-    margin: 10px 0;
-  }
-
   .blur {
     filter: blur(5px);
   }
@@ -128,10 +164,17 @@ body {
     align-items: center;
 
     position: fixed;
-    bottom: 0;
+    bottom: 5px;
     right: 10px;
-    width: 7rem;
     height: 3rem;
+
+    &:hover .info {
+      display: block;
+    }
+
+    .info {
+      display: none;
+    }
 
     .icon {
       background-image: url('./assets/martin-icon.png');
@@ -245,11 +288,12 @@ body {
 
     &.container {
       width: 100%;
-      // display: flex;
-      // justify-content: center;
-      // height: 94%;
-      // gap: 10px;
-      // padding: 1rem 0;
+      padding-top: 4rem;
+      /* display: flex;
+      justify-content: center;
+      height: 94%;
+      gap: 10px;
+      padding: 1rem 0;*/
         
       .zoom {
         position: fixed;
@@ -258,6 +302,8 @@ body {
         left: 50%;
         transform: translate(-50%, -50%);
         width: 24vw;
+        
+        z-index: 9999;
       }
       
       .loading-message {
@@ -278,7 +324,7 @@ body {
       > div {
         flex: 0 0 120px;
         border-radius: 0.5rem;
-        // transition: 0.5s ease-in-out;
+        /* transition: 0.5s ease-in-out; */
         cursor: pointer;
         box-shadow: 1px 5px 15px black;
         position: relative;
@@ -542,7 +588,7 @@ body {
   }
 
   .wallpapers {
-    padding: 3vh 24vw;
+    padding: 3vh 16vw;
 
     .container {
       width: 100%;
@@ -550,17 +596,25 @@ body {
       flex-wrap: wrap;
       justify-content: center;
       gap: 34px;
+      margin-top: 4rem;
 
       .card {
+        position: relative;
         display: flex;
         flex-direction: column;
-        /*width: 31.5rem;
-        height: 38rem;*/
-        width: 19rem;
+        width: 19.8rem;
         height: 23rem;
         border-radius: 25px;
         background-color: var(--main-colors-1);
         
+        .info-value {
+          position: absolute;
+          background-color: var(--main-colors-3);
+          right: 10px;
+          top: 10px;
+          padding: 4px;
+          border-radius: 6px;
+        }
 
         .card-body {
           flex: 1;
@@ -574,7 +628,7 @@ body {
           }
         }
         .card-title {
-          font-size: 38px;
+          font-size: 1.5rem;
         }
         
         .thumb {
@@ -643,40 +697,69 @@ body {
       }
     }
 
+    .close-on-click {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
     .selected {
       display: flex;
       position: fixed;
       background-color: var(--main-colors-1);
       width: calc(100% - 20vw * 2);
-      height: 100%;
-      top: 0;
+      height: 84vh;
+      top: 16vh;
       left: 0;
-      margin: 20vh 20vw;
+      margin: 0 20vw;
       margin-bottom: 0;
-      border-radius: 35px;
+      border-radius: 35px 35px 0 0;
 
       .item-info {
             
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 20px 0;
 
         img {
           height: 50vh;
         }
 
         .details {
-          padding: 20px;
+          padding: 0 20px;
+          display: flex;
+          flex-direction: column;
+          width: 90%;
         }
 
       }
     
       .purchase-info {
+        padding-right: 20px;
+
+        input.price {
+          font-family: 'ByteBounce';
+          font-size: 3rem;
+          border-radius: 8px;
+          padding: 8px 16px;
+          height: 46px;
+          margin: 10px 0;
+          width: 26vw;
+        }
+
         .button.buy-download-button {
           display: block;
           width: 27rem;
           text-align: center;
           font-size: 3rem;
+          width: 26vw;
+
+          &.disabled {
+            filter: opacity(0.3);
+          }
         }
       }
 
