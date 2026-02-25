@@ -72,6 +72,13 @@ export default {
       if (event.key === 'Escape') {
         this.unselectItem();
       }
+    },
+    copyToClipboard({ target }) {
+      navigator.clipboard.writeText('https://www.tatamidork.com.ar/#' + this.$route.fullPath);
+      if (!target.classList.contains('copied')) {
+        target.classList.add('copied');
+        target.innerText = 'Copied!';
+      }
     }
   },
   components: {

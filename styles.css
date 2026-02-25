@@ -118,9 +118,26 @@ body {
       background-color: var(--main-colors-3);
       height: 67px;
       width: 67px;
-      border-radius: 50%;
+      border-radius: 34px;
       background-position: center;
       background-size: contain;
+      cursor: pointer;
+    }
+
+    &.copy-link i {
+      background-image: url(./assets/link.png);
+      background-size: 34px;
+      background-repeat: no-repeat;
+
+      &.copied {
+        background: var(--main-colors-3);
+        font-size: 2rem;
+        font-style: normal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 130px;
+      }
     }
 
     &.twitter i {
@@ -698,7 +715,7 @@ body {
     }
 
     .close-on-click {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;

@@ -71,16 +71,21 @@ export default /*html*/`
       <h2>Share this</h2>
       <div class="share-options">
         <a
+          class="share-button copy-link"
+          @click="copyToClipboard"
+        ><i></i></a>
+        <a
           class="share-button facebook"
-          href="https://www.facebook.com/sharer.php?u=https%3A//tatamidork.com.ar/%23/wallpapers/asd-1&ref=fbshare&t=Tatamidork+added+a+new+item+to+their+Shop"
           target="_blank"
           rel="noopener noreferrer"
+          :href="'https://www.facebook.com/sharer.php?u=https%3A//tatamidork.com.ar/%23/wallpapers/' + selected.key + '&ref=fbshare&t=Tatamidork+added+a+new+item+to+their+Shop'"
         ><i></i></a>
         <a
           class="share-button twitter"
           data-via="tatamidork_button"
           data-url="https://tatamidork.com.ar/#/wallpapers/asd-1"
           data-text="Tatamidork added a new item to their Shop"
+          target="_blank"
           :href="'https://twitter.com/intent/tweet?text=Tatamidork+added+a+new+item+to+their+Shop&amp;url=https%3A//tatamidork.com.ar/%23/wallpapers/' + selected.key"
         ><i></i></a>
       </div>
