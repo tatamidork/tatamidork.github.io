@@ -8,7 +8,7 @@ export default /*html*/`
     <!--div>selected: {{ $route.params.wallpaper }}</div-->
     <div class="card" v-for="([key, item], index) of Object.entries(data)" :key="index">
       <div class="thumb" :class="{ [item.key]: true }"></div>
-      <div class="info-value">{{ item.basePrice === 0 ? "Free" : item.basePrice + "+" }}</div>
+      <div class="info-value">{{ item.basePrice === 0 ? "Free" : "$" + item.basePrice + "+" }}</div>
 
       <div class="card-body">
         <div class="card-title">{{ item.title }}</div>
@@ -18,7 +18,7 @@ export default /*html*/`
         </div>
 
         <div class="actions">
-          <div class="button" @click="selectItem(key)">
+          <div class="button" @click="selectItem(item.key)">
             Download
           </div>
         </div>
@@ -75,17 +75,14 @@ export default /*html*/`
           href="https://www.facebook.com/sharer.php?u=https%3A//tatamidork.com.ar/%23/wallpapers/asd-1&ref=fbshare&t=Tatamidork+added+a+new+item+to+their+Shop"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          <i></i>
-        </a>
+        ><i></i></a>
         <a
           class="share-button twitter"
           data-via="tatamidork_button"
           data-url="https://tatamidork.com.ar/#/wallpapers/asd-1"
           data-text="Tatamidork added a new item to their Shop"
-          href="https://twitter.com/intent/tweet?text=Tatamidork+added+a+new+item+to+their+Shop&amp;url=https%3A//tatamidork.com.ar/%23/wallpapers/asd-1">
-          <i></i>
-        </a>
+          :href="'https://twitter.com/intent/tweet?text=Tatamidork+added+a+new+item+to+their+Shop&amp;url=https%3A//tatamidork.com.ar/%23/wallpapers/' + selected.key"
+        ><i></i></a>
       </div>
     </div>
   </div>

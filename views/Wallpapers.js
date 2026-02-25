@@ -5,15 +5,15 @@ import MainHeader from 'components/MainHeader.js';
 import template from 'templates/Wallpapers.js';
 import data from 'data/Wallpapers.js';
 
-const checkParameter = value => {
-  
-  if (value) {
-    if (!Object.keys(data).includes(value)) {
-      return '';
+const checkParameter = key => {
+  if (key) {
+    const item = data.find(o => o.key == key);
+    if (item) {
+      return item;
     }
   }
 
-  return data[value];
+  return '';
 };
 
 export default {
@@ -58,7 +58,7 @@ export default {
       this.$router.push(`./`);
     },
     selectItem(key) {
-      this.selected = data[key];
+      this.selected = data.find(o => o.key == key);
       this.$router.push(`./${key}`);
     },
     buyDownload() {

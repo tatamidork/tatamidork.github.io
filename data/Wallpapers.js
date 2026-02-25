@@ -82,7 +82,7 @@ const data = {
     releaseDate: "2026-01-01T00:00:00Z",
   },
   "sv-frieren": {
-    title: "SV Frieren",
+    title: "Frieren",
     key: "sv-frieren",
     source: `${base}SV Frieren preview.png`,
     description: "Fantasy character",

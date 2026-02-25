@@ -725,11 +725,10 @@ body {
         padding: 20px 0;
 
         img {
-          height: 50vh;
+          height: 53vh;
         }
 
         .details {
-          padding: 0 20px;
           display: flex;
           flex-direction: column;
           width: 90%;
