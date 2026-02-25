@@ -81,6 +81,40 @@ body {
       top: 28px;
     }
   }
+  
+  .icon-menu {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    background-image: url(./assets/menu.svg);
+
+    /*&:hover {
+      filter: drop-shadow(1px 3px 2px black);
+    }
+
+    .open {
+      filter: grayscale(1);
+    }*/
+  }
+
+  .menu-index {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 2rem;
+    font-size: 2rem;
+
+    a {
+      text-decoration: none;
+      color: var(--main-colors-1);
+    }
+  }
 
   .text-mid-size {
     font-size: 1.5rem;
@@ -125,8 +159,7 @@ body {
     }
 
     &.copy-link i {
-      background-image: url(./assets/link.png);
-      background-size: 34px;
+      background-image: url(./assets/link-icon-t.png);
       background-repeat: no-repeat;
 
       &.copied {
@@ -144,10 +177,8 @@ body {
       background-image: url(./assets/x-icon-t.png);
     }
     &.facebook i {
-      background-image: url(./assets/facebook.png);
-      background-position: 1rem;
+      background-image: url(./assets/fb-icon-t.png);
       background-repeat: no-repeat;
-      background-size: 38px;
     }
   }
 
@@ -170,37 +201,6 @@ body {
 
   .blur {
     filter: blur(5px);
-  }
-
-  .developer-credit {
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--main-colors-1);
-
-    display: flex;
-    align-items: center;
-
-    position: fixed;
-    bottom: 5px;
-    right: 10px;
-    height: 3rem;
-
-    &:hover .info {
-      display: block;
-    }
-
-    .info {
-      display: none;
-    }
-
-    .icon {
-      background-image: url('./assets/martin-icon.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 3rem;
-      height: 3rem;
-    }
   }
 
   .main-logo {
@@ -605,7 +605,7 @@ body {
   }
 
   .wallpapers {
-    padding: 3vh 16vw;
+    padding: 3vh 2vw;
 
     .container {
       width: 100%;
@@ -726,13 +726,15 @@ body {
       display: flex;
       position: fixed;
       background-color: var(--main-colors-1);
-      width: calc(100% - 20vw * 2);
-      height: 84vh;
+      width: calc(100% - 2vw * 2);
+      margin: 0 2vw;
+      height: 84dvh;
       top: 16vh;
       left: 0;
-      margin: 0 20vw;
       margin-bottom: 0;
       border-radius: 35px 35px 0 0;
+      flex-direction: column;
+      overflow: auto;
 
       .item-info {
             
@@ -742,7 +744,7 @@ body {
         padding: 20px 0;
 
         img {
-          height: 53vh;
+          height: 92vw;
         }
 
         .details {
@@ -754,7 +756,10 @@ body {
       }
     
       .purchase-info {
-        padding-right: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        align-items: center;
 
         input.price {
           font-family: 'ByteBounce';
@@ -763,7 +768,7 @@ body {
           padding: 8px 16px;
           height: 46px;
           margin: 10px 0;
-          width: 26vw;
+          width: 80%;
         }
 
         .button.buy-download-button {
@@ -771,7 +776,7 @@ body {
           width: 27rem;
           text-align: center;
           font-size: 3rem;
-          width: 26vw;
+          width: 80%;
 
           &.disabled {
             filter: opacity(0.3);
@@ -781,6 +786,48 @@ body {
 
       > * {
         flex: 1;
+      }
+    }
+  }
+  
+
+  .credits {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .developer-credit {
+      color: var(--main-colors-1);
+
+      display: flex;
+      align-items: center;
+      height: 3rem;
+      zoom: 2;
+
+      .info {
+        display: block;
+      }
+
+      .icon {
+        background-image: url('./assets/martin-icon.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      font-size: 2rem;
+
+      a {
+        color: var(--main-colors-1);
       }
     }
   }
@@ -824,113 +871,148 @@ body {
 }
 
 @media screen and (min-width: 500px) {
-  body .portfolio.container {
+  body {
+    .portfolio.container {
 
-    .fullscreen {
+      .fullscreen {
+        
+        &.square {
+          width: 100dvh;
+          height: 100dvh;
+        }
+      }
       
-      &.square {
-        width: 100dvh;
-        height: 100dvh;
+      .items {
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+          flex: 1 0 20vw;
+
+          
+          &:nth-of-type(1) {
+            background-position-y: -8vw;
+          }
+          &:nth-of-type(2) {
+            background-position-y: -14vw;
+          }
+          &:nth-of-type(3) {
+            background-position-y: -6vw;
+          }
+          &:nth-of-type(4) {
+            background-position-y: -9vw;
+          }
+          &:nth-of-type(5) {
+            background-position-y: -5vw;
+          }
+          &:nth-of-type(6) {
+            background-position-y: -7vw;
+          }
+          &:nth-of-type(7) {
+            background-position-y: -10vw;
+          }
+          &:nth-of-type(8) {
+            background-position-y: -12vw;
+          }
+          &:nth-of-type(9) {
+            background-position-y: -10vw;
+          }
+          &:nth-of-type(10) {
+            background-position-y: -12vw;
+          }
+          &:nth-of-type(11) {
+            background-position-y: -3vw;
+          }
+          &:nth-of-type(12) {
+            background-position-y: -3vw;
+          }
+          &:nth-of-type(13) {
+            background-position-y: -10vw;
+          }
+          &:nth-of-type(14) {
+            background-position-y: -12vw;
+          }
+          &:nth-of-type(15) {
+            background-position-y: -4vw;
+          }
+          &:nth-of-type(16) {
+            background-position-y: -22vw;
+          }
+          &:nth-of-type(17) {
+            background-position-y: -17vw;
+          }
+          &:nth-of-type(18) {
+            background-position-y: -13vw;
+          }
+          &:nth-of-type(19) {
+            background-position-y: -18vw;
+          }
+          &:nth-of-type(20) {
+            background-position-y: -7vw;
+          }
+          &:nth-of-type(21) {
+            background-position-y: -12vw;
+          }
+          &:nth-of-type(22) {
+            background-position-y: -7vw;
+          }
+          &:nth-of-type(23) {
+            background-position-y: -5vw;
+          }
+          &:nth-of-type(24) {
+            background-position-y: -13vw;
+          }
+          &:nth-of-type(25) {
+            background-position-y: -5vw;
+          }
+          &:nth-of-type(26) {
+            background-position-y: -12vw;
+          }
+          &:nth-of-type(27) {
+            background-position-y: -3vw;
+          }
+          &:nth-of-type(28) {
+            background-position-y: -17vw;
+          }
+          &:nth-of-type(29) {
+            background-position-y: -15vw;
+          }
+          &:nth-of-type(30) {
+            background-position-y: -6vw;
+          }
+        }
       }
     }
-    
-    .items {
-      display: flex;
-      flex-wrap: wrap;
 
-      > * {
-        flex: 1 0 20vw;
+    .wallpapers {
+      padding: 3vh 16vw;
 
-        
-        &:nth-of-type(1) {
-          background-position-y: -8vw;
+      .selected {
+        width: calc(100% - 20vw * 2);
+        margin: 0 20vw;
+        flex-direction: unset;
+        overflow: unset;
+
+        .item-info {
+          img {
+            height: 53vh;
+          }
         }
-        &:nth-of-type(2) {
-          background-position-y: -14vw;
-        }
-        &:nth-of-type(3) {
-          background-position-y: -6vw;
-        }
-        &:nth-of-type(4) {
-          background-position-y: -9vw;
-        }
-        &:nth-of-type(5) {
-          background-position-y: -5vw;
-        }
-        &:nth-of-type(6) {
-          background-position-y: -7vw;
-        }
-        &:nth-of-type(7) {
-          background-position-y: -10vw;
-        }
-        &:nth-of-type(8) {
-          background-position-y: -12vw;
-        }
-        &:nth-of-type(9) {
-          background-position-y: -10vw;
-        }
-        &:nth-of-type(10) {
-          background-position-y: -12vw;
-        }
-        &:nth-of-type(11) {
-          background-position-y: -3vw;
-        }
-        &:nth-of-type(12) {
-          background-position-y: -3vw;
-        }
-        &:nth-of-type(13) {
-          background-position-y: -10vw;
-        }
-        &:nth-of-type(14) {
-          background-position-y: -12vw;
-        }
-        &:nth-of-type(15) {
-          background-position-y: -4vw;
-        }
-        &:nth-of-type(16) {
-          background-position-y: -22vw;
-        }
-        &:nth-of-type(17) {
-          background-position-y: -17vw;
-        }
-        &:nth-of-type(18) {
-          background-position-y: -13vw;
-        }
-        &:nth-of-type(19) {
-          background-position-y: -18vw;
-        }
-        &:nth-of-type(20) {
-          background-position-y: -7vw;
-        }
-        &:nth-of-type(21) {
-          background-position-y: -12vw;
-        }
-        &:nth-of-type(22) {
-          background-position-y: -7vw;
-        }
-        &:nth-of-type(23) {
-          background-position-y: -5vw;
-        }
-        &:nth-of-type(24) {
-          background-position-y: -13vw;
-        }
-        &:nth-of-type(25) {
-          background-position-y: -5vw;
-        }
-        &:nth-of-type(26) {
-          background-position-y: -12vw;
-        }
-        &:nth-of-type(27) {
-          background-position-y: -3vw;
-        }
-        &:nth-of-type(28) {
-          background-position-y: -17vw;
-        }
-        &:nth-of-type(29) {
-          background-position-y: -15vw;
-        }
-        &:nth-of-type(30) {
-          background-position-y: -6vw;
+
+        .purchase-info {
+          padding-right: 20px;
+          display: unset;
+          flex-direction: unset;
+          align-items: unset;
+
+          
+          input.price {
+            width: 26vw;
+          }
+
+          .button.buy-download-button {
+            width: 26vw;
+          }
         }
       }
     }

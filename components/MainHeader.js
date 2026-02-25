@@ -39,12 +39,10 @@ export default {
       
       <ul class="menu-index" v-if="showMenu">
         <li><router-link to="/">Go back</router-link></li>
-        <li v-if="!hideFurigana"><a href="#" @click.prevent="onChangeFurigana()">Switch furigana</a></li>
-        <li v-if="!hideZoom"><a href="#" @click.prevent="onOpenZoom()">Zoom level</a></li>
+        <li><router-link to="/credits">Credits</a></li>
       </ul>
       
-      <div class="icon-menu" @click="showMenu=!showMenu">
-      </div>
+      <div class="icon-menu" @click="showMenu=!showMenu"></div>
     </header>
   `,
 }

@@ -21,6 +21,7 @@ export default {
   watch: {
     $route (to, from, next) {
       this.selected = checkParameter(to.params.wallpaper);
+      this.price = null;
       next();
     }
   },

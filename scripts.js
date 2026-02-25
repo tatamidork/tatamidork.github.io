@@ -3,6 +3,7 @@ import { createApp, ref } from 'vue';
 import { createRouter, createWebHashHistory, useRouter } from 'vue-router';
 
 import Home from 'views/Home.js';
+import Credits from 'views/Credits.js';
 import Portfolio from 'views/Portfolio.js';
 import Wallpapers from 'views/Wallpapers.js';
 
@@ -59,6 +60,7 @@ const NotFound = {
 // Routes
 const routes = [
   { path: '/', component: Home, name: 'home' },
+  { path: '/Credits/', component: Credits, name: 'Credits' },
   { path: '/Portfolio/', component: Portfolio, name: 'Portfolio' },
   { path: '/Wallpapers/', component: Wallpapers, name: 'Wallpapers',
     strict: true,
