@@ -64,7 +64,7 @@
             const mainContent = document.querySelector(selector);
             mainContent.classList.remove('hidden');
           }
-        }, 100);
+        }, 1000);
         
         clearInterval(intervalId);
       }
@@ -74,6 +74,6 @@
       const intervalId = setInterval(() => {
         check(intervalId);
       }, 100);
-    }, 100);
+    }, 2000);
   </script>
 </html>

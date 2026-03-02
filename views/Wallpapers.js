@@ -22,6 +22,7 @@ export default {
     $route (to, from, next) {
       this.selected = checkParameter(to.params.wallpaper);
       this.price = null;
+      this.transferInfoOpened = false;
       next();
     }
   },
@@ -29,6 +30,7 @@ export default {
     console.log('Wallpapers component mounted');
 
     const price = ref(null);
+    const transferInfoOpened = ref(false);
 
     const route = useRoute();
 
@@ -43,6 +45,7 @@ export default {
 
     return {
       selected,
+      transferInfoOpened,
       data,
       price,
     };
@@ -54,6 +57,12 @@ export default {
     window.removeEventListener('keydown', this.handleGlobalEscape);
   },
   methods: {
+    directTransfer() {
+      this.transferInfoOpened = true;
+    },
+    closeTransferInfo() {
+      this.transferInfoOpened = false;
+    },
     unselectItem() {
       this.selected = null;
       this.$router.push(`./`);
@@ -71,16 +80,20 @@ export default {
     },
     handleGlobalEscape(event) {
       if (event.key === 'Escape') {
-        this.unselectItem();
+        if (this.transferInfoOpened) {
+          this.transferInfoOpened = false;
+        } else {
+          this.unselectItem();
+        }
       }
     },
-    copyToClipboard({ target }) {
+    copyShareToClipboard({ target }) {
       navigator.clipboard.writeText('https://www.tatamidork.com.ar/#' + this.$route.fullPath);
       if (!target.classList.contains('copied')) {
         target.classList.add('copied');
         target.innerText = 'Copied!';
       }
-    }
+    },
   },
   components: {
     MainHeader,
