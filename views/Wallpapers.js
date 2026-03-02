@@ -87,11 +87,20 @@ export default {
         }
       }
     },
-    copyShareToClipboard({ target }) {
-      navigator.clipboard.writeText('https://www.tatamidork.com.ar/#' + this.$route.fullPath);
-      if (!target.classList.contains('copied')) {
-        target.classList.add('copied');
-        target.innerText = 'Copied!';
+    async copyShareToClipboard({ target }) {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile && navigator.share) {
+        await navigator.share({
+          title: document.title,
+          text: 'Check out this Tatamidork art!',
+          url: document.location.href, // Shares the current page's URL
+        });
+      } else {
+        navigator.clipboard.writeText('https://www.tatamidork.com.ar/#' + this.$route.fullPath);
+        if (!target.classList.contains('copied')) {
+          target.classList.add('copied');
+          target.innerText = 'Copied!';
+        }
       }
     },
   },
