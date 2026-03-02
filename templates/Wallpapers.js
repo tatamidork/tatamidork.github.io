@@ -6,7 +6,7 @@ export default /*html*/`
   </main-header>
   <div class="container" :class="{ blur: selected?.key }">
     <!--div>selected: {{ $route.params.wallpaper }}</div-->
-    <div class="card" v-for="([key, item], index) of Object.entries(data)" :key="index">
+    <div class="card" v-for="([key, item], index) of Object.entries(data)" :key="index" @click="selectItem(item.key)">
       <div class="thumb" :class="{ [item.key]: true }"></div>
       <div class="info-value">{{ item.basePrice === 0 ? "Free" : "$" + item.basePrice + "+" }}</div>
 
@@ -17,11 +17,11 @@ export default /*html*/`
           {{ item.description }}
         </div>
 
-        <div class="actions">
+        <!--div class="actions">
           <div class="button" @click="selectItem(item.key)">
             Download
           </div>
-        </div>
+        </div-->
       </div>
     </div>
     <div class="loading-message">loading...</div>
@@ -33,7 +33,7 @@ export default /*html*/`
       <img :src="selected.source" />
       <div class="details">
         <h2>Description</h2>
-        <div class="description text-mid-size">
+        <div class="description text-small-size">
           Pixel art Animated / Static Wallpaper.<br>
           <br>
           Includes:<br>
@@ -50,7 +50,7 @@ export default /*html*/`
         <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjU2IDI1NiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8bWV0YWRhdGE+IFN2ZyBWZWN0b3IgSWNvbnMgOiBodHRwOi8vd3d3Lm9ubGluZXdlYmZvbnRzLmNvbS9pY29uIDwvbWV0YWRhdGE+DQo8Zz48Zz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTk4LjgsMTA0LjRWODAuOGgyMy42VjU3LjJIMjQ2VjEwaC00Ny4ydjIzLjZoLTIzLjZ2MjMuNmgtMjMuNnYyMy42aC00Ny4yVjU3LjJIODAuOFYzMy42SDU3LjJWMTBIMTB2NDcuMmgyMy42djIzLjZoMjMuNnYyMy42aDIzLjZ2NDcuMkg1Ny4ydjIzLjZIMzMuNnYyMy42SDEwVjI0Nmg0Ny4ydi0yMy42aDIzLjZ2LTIzLjZoMjMuNnYtMjMuNmg0Ny4ydjIzLjZoMjMuNnYyMy42aDIzLjZWMjQ2SDI0NnYtNDcuMmgtMjMuNnYtMjMuNmgtMjMuNnYtMjMuNmgtMjMuNnYtNDcuMkgxOTguOHoiLz48L2c+PC9nPg0KPC9zdmc+" width="16" height="16">
       </div-->
       <h1>{{ selected.title }}</h1>
-      <div class="text-mid-size">Please consider making a donation...</div>
+      <div class="text-small-size">Please consider making a donation...</div>
       <!--input
         v-model="price"
         id="payWhatYouWantInput"
@@ -90,14 +90,14 @@ export default /*html*/`
       >
         Transfer with alias
       </div>
-      <div class="text-mid-size">Direct download:</div>
+      <div class="text-small-size">Direct download:</div>
       <a
         target="_blank"
         class="button"
         rel="noopener noreferrer"
         :href="'/cdn/files/' + selected.title + ' wallpapers.zip'"
       >
-        Download
+        Free download
       </a>
       <h2>Share this</h2>
       <div class="share-options">

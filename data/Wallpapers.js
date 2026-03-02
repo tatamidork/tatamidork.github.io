@@ -6,7 +6,7 @@ const data = {
     key: "arcade",
     source: `${base}Arcade Wall preview.png`,
     description: "Retro arcade vibes",
-    basePrice: 1,
+    basePrice: 0,
     releaseDate: "2026-01-01T00:00:00Z",
   },
   "feel-the-breeze": {

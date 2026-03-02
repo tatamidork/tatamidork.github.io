@@ -120,6 +120,10 @@ body {
     font-size: 1.5rem;
   }
 
+  .text-small-size {
+    font-size: 22px;
+  }
+
   .button {
     color: var(--main-colors-1);
     /*font-size: 2rem;
@@ -623,6 +627,7 @@ body {
         height: 23rem;
         border-radius: 25px;
         background-color: var(--main-colors-1);
+        cursor: pointer;
         
         .info-value {
           position: absolute;
@@ -770,11 +775,11 @@ body {
         padding: 20px 0;
         align-items: center;
         
-        > * {
+        > .button {
           text-decoration: none;
           display: block;
           text-align: center;
-          font-size: 3rem;
+          font-size: 2rem;
           width: 80%;
           display: flex;
         }
@@ -782,7 +787,7 @@ body {
         .button {
           display: block;
           text-align: center;
-          font-size: 3rem;
+          font-size: 2rem;
           width: 80%;
 
           &.disabled {
@@ -1039,6 +1044,9 @@ body {
           flex-direction: unset;
           align-items: unset;
 
+          > .button {
+            font-size: 3rem; 
+          }
           
           input.price {
             width: 26vw;
