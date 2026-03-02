@@ -131,6 +131,7 @@ export default /*html*/`
         id="alias"
         class="alias"
         value="tatamidork"
+        @click="copyToClipboard"
         readonly
       />
       <div class="text-mid-size">CBU:</div>

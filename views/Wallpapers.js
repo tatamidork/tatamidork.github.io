@@ -92,7 +92,7 @@ export default {
       if (isMobile && navigator.share) {
         await navigator.share({
           title: document.title,
-          text: 'Check out this Tatamidork art!',
+          text: 'Check out Tatamidork\' art!',
           url: document.location.href, // Shares the current page's URL
         });
       } else {
@@ -103,6 +103,19 @@ export default {
         }
       }
     },
+    async copyToClipboard() {
+      if (navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText('tatamidork');
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+          if (isMobile) {
+            alert('Copied to clipboard!');
+          }
+        } catch (err) {
+          console.error('Failed to copy text: ', err);
+        }
+      }
+    }
   },
   components: {
     MainHeader,
