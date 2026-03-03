@@ -16,8 +16,10 @@ export default {
         <div class="cara-icon" @click="openCara"></div>
         <div class="threads-icon" @click="openThreads"></div>
       </div>
-      <span class="big" @click="() => goTo('portfolio')">PORTFOLIO</span>
-      <!--span class="big" @click="() => goTo('wallpapers')">WALLPAPERS</span-->
+      <div class="content">
+        <span class="big" @click="() => goTo('portfolio')">PORTFOLIO</span>
+        <span class="big" @click="() => goTo('wallpapers')">WALLPAPERS</span>
+      </div>
     </div>
   `,
   methods: {

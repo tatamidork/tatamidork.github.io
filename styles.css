@@ -208,7 +208,7 @@ body {
   }
 
   .main-logo {
-    background-image: url('./assets/logo_vert3.png');
+    background-image: url('./assets/logo-final-T.png');
     height: 8em;
     width: 15em;
     background-size: contain;
@@ -216,7 +216,7 @@ body {
     background-position: center;
     
     &.animated {
-      background-image: url('./assets/gif/logo-name-animation-T.gif');
+      background-image: url('./assets/gif/logo-anim-final-T.gif');
       height: 10em;
       width: 18em;
     }
@@ -254,6 +254,12 @@ body {
   }
 
   .home {
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
 
     .normal {
       color: var(--main-colors-1);
