@@ -32,7 +32,7 @@ export default {
   template: /*html*/`
     <header>
       <div class="title">
-        <img src="./assets/logo_vert3.png" @click.prevent="goHome()" title="go home">
+        <img src="./assets/logo-final-T.png" @click.prevent="goHome()" title="go home">
         <div>{{ title }}</div>
         <slot></slot>
       </div>
