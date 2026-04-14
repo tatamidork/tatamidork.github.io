@@ -483,8 +483,28 @@ body {
         &.zoom-image-30 {
           background-image: url('./assets/gif/Glitch.gif');
         }
+        &.zoom-image-31 {
+          background-image: url('./assets/gif/Focus\ c.gif');
+          width: 56dvh;
+        }
+        &.zoom-image-32 {
+          background-image: url('./assets/gif/Feel\ the\ breeze\ c.gif');
+          width: 56dvh;
+        }
+        &.zoom-image-33 {
+          background-image: url('./assets/gif/san\ valentin\ frieren\ c.gif');
+          width: 56dvh;
+        }
+        &.zoom-image-34 {
+          background-image: url('./assets/gif/Lunarnewyear26\ C.gif');
+          width: 56dvh;
+        }
+        &.zoom-image-35 {
+          background-image: url('./assets/gif/Misato\ photo\ c.gif');
+          width: 56dvh;
+        }
       }
-      .items > * {
+      .items > * {/*mobile*/
         height: 100px;
         background-repeat: no-repeat;
         background-position: 50%;
@@ -609,6 +629,26 @@ body {
         &:nth-of-type(30) {
           background-image: url('./assets/png/Glitch.png');
           background-position-y: -38vw;
+        }
+        &:nth-of-type(31) {
+          background-image: url('./assets/png/Focus\ static.png');
+          background-position-y: -73vw;
+        }
+        &:nth-of-type(32) {
+          background-image: url('./assets/png/Feel\ the\ breeze\ static.png');
+          background-position-y: -66vw;
+        }
+        &:nth-of-type(33) {
+          background-image: url('./assets/png/san\ valentin\ frieren\ static.png');
+          background-position-y: -60vw;
+        }
+        &:nth-of-type(34) {
+          background-image: url('./assets/png/Lunarnewyear26\ Static.png');
+          background-position-y: -65vw;
+        }
+        &:nth-of-type(35) {
+          background-image: url('./assets/png/Misato\ photo\ static.png');
+          background-position-y: -70vw;
         }
       }
     }
@@ -1024,6 +1064,21 @@ body {
           }
           &:nth-of-type(30) {
             background-position-y: -6vw;
+          }
+          &:nth-of-type(31) {
+            background-position-y: -15vw;
+          }
+          &:nth-of-type(32) {
+            background-position-y: -13vw;
+          }
+          &:nth-of-type(33) {
+            background-position-y: -12vw;
+          }
+          &:nth-of-type(34) {
+            background-position-y: -13vw;
+          }
+          &:nth-of-type(35) {
+            background-position-y: -14vw;
           }
         }
       }
