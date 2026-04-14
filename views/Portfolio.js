@@ -8,7 +8,7 @@ export default {
       >
       </main-header>
       <div class="items">
-        <div v-for="i in 30" :key="i" @click="onSelect" class="art loading"></div>
+        <div v-for="i in 35" :key="i" @click="onSelect" class="art loading"></div>
       </div>
       <div @click="onSelect" class="fullscreen"></div>
       <div class="loading-message">loading...</div>

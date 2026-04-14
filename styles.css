@@ -483,6 +483,10 @@ body {
         &.zoom-image-30 {
           background-image: url('./assets/gif/Glitch.gif');
         }
+        &.zoom-image-31 {
+          background-image: url('./assets/gif/Focus\ c.gif');
+          width: 56dvh;
+        }
       }
       .items > * {
         height: 100px;
@@ -609,6 +613,26 @@ body {
         &:nth-of-type(30) {
           background-image: url('./assets/png/Glitch.png');
           background-position-y: -38vw;
+        }
+        &:nth-of-type(31) {
+          background-image: url('./assets/png/Focus\ static.png');
+          background-position-y: -72vw;
+        }
+        &:nth-of-type(32) {
+          background-image: url('./assets/png/Feel\ the\ breeze\ static.png');
+          background-position-y: -72vw;
+        }
+        &:nth-of-type(33) {
+          background-image: url('./assets/png/san\ valentin\ frieren\ static.png');
+          background-position-y: -72vw;
+        }
+        &:nth-of-type(34) {
+          background-image: url('./assets/png/Lunarnewyear26\ Static.png');
+          background-position-y: -72vw;
+        }
+        &:nth-of-type(35) {
+          background-image: url('./assets/png/Misato\ photo\ static.png');
+          background-position-y: -72vw;
         }
       }
     }
@@ -1024,6 +1048,21 @@ body {
           }
           &:nth-of-type(30) {
             background-position-y: -6vw;
+          }
+          &:nth-of-type(31) {
+            background-position-y: -80vw;
+          }
+          &:nth-of-type(32) {
+            background-position-y: -80vw;
+          }
+          &:nth-of-type(33) {
+            background-position-y: -80vw;
+          }
+          &:nth-of-type(34) {
+            background-position-y: -80vw;
+          }
+          &:nth-of-type(35) {
+            background-position-y: -80vw;
           }
         }
       }
