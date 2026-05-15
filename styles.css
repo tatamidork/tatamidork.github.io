@@ -761,6 +761,11 @@ body {
           &.wild-crowd {
             background-image: url('./assets/wallpapers/Wild crowd wall preview.png');
           }
+        
+          &.straw-hat {
+            background-image: url('./assets/wallpapers/Straw Hat wall preview.png');
+
+          }
         }
       }
     }
