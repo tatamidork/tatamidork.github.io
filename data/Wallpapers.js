@@ -1,6 +1,14 @@
 const base = '/assets/wallpapers/';
 
 const data = {
+  "straw-hat": {
+    title: "Straw Hat",
+    key: "straw-hat",
+    source: `${base}Straw Hat Wall preview.png`,
+    description: "King of the pirates",
+    basePrice: 0,
+    releaseDate: "2026-05-15T00:00:00Z",
+  }, 
   "arcade": {
     title: "Arcade",
     key: "arcade",
@@ -23,7 +31,7 @@ const data = {
     source: `${base}Game girl Wall preview.png`,
     description: "Time to play!",
     basePrice: 0,
-    releaseDate: "2026-01-03T00:00:00Z",
+    releaseDate: "2026-01-01T00:00:00Z",
   },
   "halloween": {
     title: "Halloween",
