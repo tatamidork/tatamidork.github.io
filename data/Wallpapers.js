@@ -1,6 +1,14 @@
 const base = '/assets/wallpapers/';
 
 const data = {
+  "yanisu": {
+    title: "Yanisuu",
+    key: "yanisu",
+    source: `${base}Yanisu Wall preview.png`,
+    description: "Smoking behind the supermarket with you",
+    basePrice: 0,
+    releaseDate: "2026-06-15T00:00:00Z",
+  }, 
   "straw-hat": {
     title: "Straw Hat",
     key: "straw-hat",
