@@ -1,6 +1,14 @@
 const base = '/assets/wallpapers/';
 
 const data = {
+  "ghost": {
+    title: "The Ghost in the shell",
+    key: "ghost",
+    source: `${base}ghost wall preview.png`,
+    description: "Major Motoko Kusanagi",
+    basePrice: 0,
+    releaseDate: "2026-07-15T00:00:00Z",
+  }, 
   "yanisu": {
     title: "Yanisuu",
     key: "yanisu",

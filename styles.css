@@ -766,6 +766,10 @@ body {
             background-image: url('./assets/wallpapers/Yanisu Wall preview.png');
           }
         
+          &.ghost {
+            background-image: url('./assets/wallpapers/ghost wall preview.png');
+          }
+        
           &.straw-hat {
             background-image: url('./assets/wallpapers/Straw Hat Wall preview.png');
           }
