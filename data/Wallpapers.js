@@ -1,6 +1,14 @@
 const base = '/assets/wallpapers/';
 
 const data = {
+  "hxh": {
+    title: "Gon & Killua",
+    key: "hxh",
+    source: `${base}hxh wall preview.png`,
+    description: "Friends forever",
+    basePrice: 0,
+    releaseDate: "2026-07-27T00:00:00Z",
+  },   
   "ghost": {
     title: "The Ghost in the shell",
     key: "ghost",
