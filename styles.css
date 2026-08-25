@@ -774,6 +774,10 @@ body {
             background-image: url('./assets/wallpapers/hxh wall preview.png');
           }
         
+          &.Mobpsycho {
+            background-image: url('./assets/wallpapers/Mobpsycho wall preview.png');
+          }
+        
           &.straw-hat {
             background-image: url('./assets/wallpapers/Straw Hat Wall preview.png');
           }
