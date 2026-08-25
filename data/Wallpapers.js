@@ -1,6 +1,14 @@
 const base = '/assets/wallpapers/';
 
 const data = {
+  "Mobpsycho": {
+    title: "Mob Psycho",
+    key: "Mobpsycho",
+    source: `${base}Mobpsycho wall preview.png`,
+    description: "Be kind",
+    basePrice: 0,
+    releaseDate: "2026-08-25T00:00:00Z",
+  },   
   "hxh": {
     title: "Gon & Killua",
     key: "hxh",
