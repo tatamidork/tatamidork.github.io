@@ -2,7 +2,7 @@ const base = '/assets/wallpapers/';
 
 const data = {
   "Mobpsycho": {
-    title: "MobPsycho",
+    title: "Mobpsycho",
     key: "Mobpsycho",
     source: `${base}Mobpsycho wall preview.png`,
     description: "Be kind",
