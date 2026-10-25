@@ -1,6 +1,14 @@
 const base = '/assets/wallpapers/';
 
 const data = {
+  "Luffyroger": {
+    title: "Luffy and Roger",
+    key: "Luffyroger",
+    source: `${base}Luffyroger wall preview.png`,
+    description: "Dream big",
+    basePrice: 0,
+    releaseDate: "2026-10-25T00:00:00Z",
+  },     
   "Mobpsycho": {
     title: "Mobpsycho",
     key: "Mobpsycho",
