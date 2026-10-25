@@ -778,6 +778,10 @@ body {
             background-image: url('./assets/wallpapers/Mobpsycho wall preview.png');
           }
         
+          &.Luffyroger {
+            background-image: url('./assets/wallpapers/Luffyroger wall preview.png');
+          }
+        
           &.straw-hat {
             background-image: url('./assets/wallpapers/Straw Hat Wall preview.png');
           }
