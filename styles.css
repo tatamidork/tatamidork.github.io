@@ -780,6 +780,10 @@ body {
         
           &.Luffyroger {
             background-image: url('./assets/wallpapers/Luffyroger wall preview.png');
+          }        
+          
+          &.Chunli {
+            background-image: url('./assets/wallpapers/Chun-li wall preview.png');
           }
         
           &.straw-hat {
