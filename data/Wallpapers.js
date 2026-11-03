@@ -1,6 +1,14 @@
 const base = '/assets/wallpapers/';
 
 const data = {
+  "Chunli": {
+    title: "Chun-li",
+    key: "Chunli",
+    source: `${base}Chun-li wall preview.png`,
+    description: "Worlds Strongest Woman",
+    basePrice: 0,
+    releaseDate: "2026-11-03T00:00:00Z",
+  }, 
   "Luffyroger": {
     title: "Luffy and Roger",
     key: "Luffyroger",
